@@ -6,14 +6,14 @@ action :save do
 
   if new_resource.vlan_dev || new_resource.device =~ /(eth|bond|wlan)[0-9]+\.[0-9]+/
     package 'vlan'
-    modules '8021q'
+    kernel_module '8021q'
   end
 
   new_resource.bond = ['none'] if new_resource.bond && new_resource.bond.class != Array
 
   if new_resource.bond
     package 'ifenslave-2.6'
-    modules 'bonding'
+    kernel_module 'bonding'
   end
 
   if new_resource.bootproto == 'dhcp'

@@ -8,5 +8,4 @@ version '1.0.1'
 
 supports 'ubuntu', '>= 12.04'
 supports 'debian', '>= 6.0.8'
-
-depends 'modules', '>= 0.1.2'
+depends 'hardware'
